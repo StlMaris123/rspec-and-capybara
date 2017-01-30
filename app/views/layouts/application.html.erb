@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>IRock</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>IRock</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+        <div class="container-fluid">
+            <li> <%= link_to "New Achievement", new_achievement_path %></li>
+            <% if flash[:notice] %>
+                <div class="alert alert-info"> <%= flash[:notice] %></div>
+            <% end %>
+            <%= yield %>
+        </div>
+    </body>
 </html>

@@ -4,11 +4,11 @@ feature 'create new achievement' do
   scenario 'create new achievement with valid data' do
     visit('/')
     click_on('New Achievement')
-    fill_n('Title', with: 'Read a book')
+    fill_in('Title', with: 'Read a book')
     fill_in('Description', with: 'Excsllent read')
     select('Public', from: 'Privacy')
     check('Featured achievement')
-    atach_file('Cover image', "#{Rails.root}/spec/fixtures/cover_image.png")
+    attach_file('Cover image', "#{Rails.root}/spec/fixtures/cover_image.png")
     click_on('Create Achievement')
 
     expect(page).to have_content('Achievement has been created')
