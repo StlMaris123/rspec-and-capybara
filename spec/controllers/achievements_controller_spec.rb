@@ -13,4 +13,10 @@ RSpec.describe AchievementsController, type: :controller do
     end
   end
 
+  describe "POST create" do
+    it "redirects to achievements#show" do
+      post :create, achievement: FactoryGirl.attributes_for(:public_achievement)
+      expect(response).to redirect_to(achievement_path(assigns[:achievement]))
+    end
+  end
 end
