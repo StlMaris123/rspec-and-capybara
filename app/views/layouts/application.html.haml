@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title I Rock
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
+
+  %body
+    .ui.secondary.pointing.menu
+      .active.item
+        = link_to "Welcome", root_url
+      .active.item
+        = link_to "New Achievement", new_achievement_path 
+      .active.item
+        = link_to "pshhh", "#"
+      .right.menu
+        .ui.item
+          = link_to 'Signup', "#"
+    - if flash[:notice]
+      .alert alert-info= flash[:notice] 
+    = yield 
